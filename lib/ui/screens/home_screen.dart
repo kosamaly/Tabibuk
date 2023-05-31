@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,10 +24,10 @@ class HomeScreen extends StatelessWidget {
         fixedColor: Colors.white,
         unselectedItemColor: Colors.white,
         backgroundColor: Colors.cyan,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(
-              MaterialCommunityIcons.bell,
+              Icons.notifications,
               color: Colors.white,
             ),
             label: 'الاشعارات',

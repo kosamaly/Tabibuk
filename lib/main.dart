@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tabibuk/ui/screens/home_screen.dart';
 import 'package:tabibuk/ui/screens/splash_screen.dart';
-import 'src/my_app.dart';
 
 void main() {
   runApp(const MyApp());
