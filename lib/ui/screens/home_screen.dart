@@ -119,7 +119,7 @@ class HomeScreen extends StatelessWidget {
                     "www.rootsoft.dev",
                     style: TextStyle(
                         fontFamily: 'Cairo',
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.normal,
                         fontSize: 16.0,
                         color: Colors.white),
                   ),
