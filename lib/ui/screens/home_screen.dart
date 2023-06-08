@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
             Container(
               width: 300,
               height: 300,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('images/logo2.png'),
                 ),
@@ -31,9 +31,10 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      // TODO : Refactor the drawer in a separate widget
       endDrawer: Drawer(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -47,8 +48,7 @@ class HomeScreen extends StatelessWidget {
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
-              DrawerHeader(
-                child: Text(''),
+              const DrawerHeader(
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   image: DecorationImage(
@@ -58,13 +58,14 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                child: Text(''),
               ),
-              ListTile(
+              // TODO : Make this pop to home screen on click
+              const ListTile(
                 trailing: Icon(Icons.home, color: Colors.white),
                 title: Text(
                   'الصفحة الرئيسية',
                   style: TextStyle(
-                      fontFamily: 'Cairo',
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                       color: Colors.white),
@@ -72,30 +73,30 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               ListTile(
-                trailing: Icon(Icons.call, color: Colors.white),
-                title: Text(
+                trailing: const Icon(Icons.call, color: Colors.white),
+                title: const Text(
                   'اتصل بنا',
                   style: TextStyle(
-                    fontFamily: 'Cairo',
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                     fontSize: 18.0,
                   ),
                   textDirection: TextDirection.rtl,
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed("/contact");
+                },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 430,
               ),
-              ListTile(
+              const ListTile(
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       'الإصدار 1.0.0 ',
                       style: TextStyle(
-                          fontFamily: 'Cairo',
                           fontWeight: FontWeight.bold,
                           fontSize: 16.0,
                           color: Colors.white),
@@ -103,7 +104,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 0,
               ),
               Column(
@@ -112,13 +113,12 @@ class HomeScreen extends StatelessWidget {
                     'images/root.png',
                     scale: 2,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text(
+                  const Text(
                     "www.rootsoft.dev",
                     style: TextStyle(
-                        fontFamily: 'Cairo',
                         fontWeight: FontWeight.normal,
                         fontSize: 16.0,
                         color: Colors.white),
@@ -130,16 +130,10 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        unselectedLabelStyle: TextStyle(
-            fontFamily: 'Cairo',
-            fontWeight: FontWeight.bold,
-            fontSize: 12.0,
-            color: Colors.white),
-        selectedLabelStyle: TextStyle(
-            fontFamily: 'Cairo',
-            fontWeight: FontWeight.bold,
-            fontSize: 12,
-            color: Colors.white),
+        unselectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.bold, fontSize: 12.0, color: Colors.white),
+        selectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.bold, fontSize: 12, color: Colors.white),
         backgroundColor: Colors.cyan,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white,

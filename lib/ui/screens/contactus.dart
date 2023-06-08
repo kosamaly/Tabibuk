@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactUsScreen extends StatefulWidget {
+  const ContactUsScreen({super.key});
+
   @override
-  _ContactUsScreenState createState() => _ContactUsScreenState();
+  ContactUsScreenState createState() => ContactUsScreenState();
 }
 
-class _ContactUsScreenState extends State<ContactUsScreen> {
+class ContactUsScreenState extends State<ContactUsScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController messageController = TextEditingController();
@@ -21,7 +23,9 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
     String messageUrl =
         'https://api.whatsapp.com/send?phone=01020732368&text=Name: $name%0AEmail: $email%0AMessage: $message';
 
+    // TODO : Don't use deprecated functions see the package official doc for updates.
     if (await canLaunch(messageUrl)) {
+      // TODO : Don't use deprecated functions see the package official doc for updates.
       await launch(messageUrl);
     } else {
       throw 'Could not launch $messageUrl';
@@ -35,7 +39,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
       emailController.clear();
       messageController.clear();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Your message has been sent.'),
         ),
       );
@@ -46,10 +50,10 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Contact Us'),
+        title: const Text('Contact Us'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Form(
           key: _formKey,
           child: Column(
@@ -57,7 +61,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
             children: [
               TextFormField(
                 controller: nameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Name',
                 ),
                 validator: (value) {
@@ -70,7 +74,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
               TextFormField(
                 controller: emailController,
                 keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Email',
                 ),
                 validator: (value) {
@@ -88,7 +92,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                 keyboardType: TextInputType.multiline,
                 maxLines: 10,
                 maxLength: 500,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Message',
                 ),
                 validator: (value) {
@@ -101,18 +105,19 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               ElevatedButton(
                 onPressed: _submitForm,
-                child: Text('Send'),
+                child: const Text('Send'),
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.language),
+                    icon: const Icon(Icons.language),
                     onPressed: () {
+                      // TODO : Don't use deprecated functions see the package official doc for updates.
                       launch('https://www.rootsoft.dev');
                     },
                   ),

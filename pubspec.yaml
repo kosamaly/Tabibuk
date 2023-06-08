@@ -84,7 +84,7 @@ flutter:
      - family: Cairo
 
        fonts:
-         - asset: fonts/Cairo-Regular.ttf
+         - asset: fonts/Cairo-VariableFont_slnt,wght.ttf
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
