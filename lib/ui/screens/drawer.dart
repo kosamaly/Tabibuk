@@ -67,10 +67,19 @@ class MyDrawer extends StatelessWidget {
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   final appVersion = snapshot.data!.version;
-                  return ListTile(
-                    title: Row(
+                  return Column(
+
+
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        Text(
+                          " الإصدار",
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16.0,
+                            color: Colors.white,
+                          ),
+                        ),
                         Text(
                           appVersion,
                           style: const TextStyle(
@@ -81,7 +90,7 @@ class MyDrawer extends StatelessWidget {
                         ),
                       ],
                     ),
-                  );
+
                 } else {
                   return const SizedBox.shrink();
                 }
