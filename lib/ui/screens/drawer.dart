@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -11,11 +12,7 @@ class MyDrawer extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
-              Colors.cyan,
-              Colors.cyan,
-              Colors.cyan,
-            ],
+            colors: [Colors.cyan, Colors.cyan, Colors.cyan],
           ),
         ),
         child: ListView(
@@ -33,8 +30,6 @@ class MyDrawer extends StatelessWidget {
               ),
               child: Text(''),
             ),
-            // TODO : Make this pop to home screen on click
-
             ListTile(
               trailing: Icon(Icons.home, color: Colors.white),
               title: Text(
@@ -67,19 +62,30 @@ class MyDrawer extends StatelessWidget {
             const SizedBox(
               height: 430,
             ),
-            const ListTile(
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'الإصدار 1.0.0 ',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
-                        color: Colors.white),
-                  ),
-                ],
-              ),
+            FutureBuilder<PackageInfo>(
+              future: PackageInfo.fromPlatform(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  final appVersion = snapshot.data!.version;
+                  return ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          appVersion,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                } else {
+                  return const SizedBox.shrink();
+                }
+              },
             ),
             const SizedBox(
               height: 0,
