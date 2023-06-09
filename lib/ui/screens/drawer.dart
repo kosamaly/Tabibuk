@@ -31,8 +31,8 @@ class MyDrawer extends StatelessWidget {
               child: Text(''),
             ),
             ListTile(
-              trailing: Icon(Icons.home, color: Colors.white),
-              title: Text(
+              trailing: const Icon(Icons.home, color: Colors.white),
+              title: const Text(
                 'الصفحة الرئيسية',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -73,7 +73,7 @@ class MyDrawer extends StatelessWidget {
                       children: [
                         Text(
                           appVersion,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16.0,
                             color: Colors.white,
@@ -86,9 +86,6 @@ class MyDrawer extends StatelessWidget {
                   return const SizedBox.shrink();
                 }
               },
-            ),
-            const SizedBox(
-              height: 0,
             ),
             Column(
               children: [

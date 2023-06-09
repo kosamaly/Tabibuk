@@ -32,8 +32,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      // TODO : Refactor the drawer in a separate widget
-      endDrawer: MyDrawer(),
+      endDrawer: const MyDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         unselectedLabelStyle: const TextStyle(
             fontWeight: FontWeight.bold, fontSize: 12.0, color: Colors.white),
