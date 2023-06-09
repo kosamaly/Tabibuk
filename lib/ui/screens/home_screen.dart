@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tabibuk/ui/screens/drawer.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -32,6 +33,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       // TODO : Refactor the drawer in a separate widget
+      endDrawer: MyDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         unselectedLabelStyle: const TextStyle(
             fontWeight: FontWeight.bold, fontSize: 12.0, color: Colors.white),

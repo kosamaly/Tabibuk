@@ -34,7 +34,8 @@ class MyDrawer extends StatelessWidget {
               child: Text(''),
             ),
             // TODO : Make this pop to home screen on click
-            const ListTile(
+
+            ListTile(
               trailing: Icon(Icons.home, color: Colors.white),
               title: Text(
                 'الصفحة الرئيسية',
@@ -44,6 +45,9 @@ class MyDrawer extends StatelessWidget {
                     color: Colors.white),
                 textDirection: TextDirection.rtl,
               ),
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
             ListTile(
               trailing: const Icon(Icons.call, color: Colors.white),
