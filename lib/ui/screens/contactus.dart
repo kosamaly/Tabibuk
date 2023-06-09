@@ -56,74 +56,76 @@ class ContactUsScreenState extends State<ContactUsScreen> {
         padding: const EdgeInsets.all(20.0),
         child: Form(
           key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              TextFormField(
-                controller: nameController,
-                decoration: const InputDecoration(
-                  labelText: 'Name',
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your name';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: emailController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: const InputDecoration(
-                  labelText: 'Email',
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your email address';
-                  }
-                  if (!value.contains('@')) {
-                    return 'Please enter a valid email address';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: messageController,
-                keyboardType: TextInputType.multiline,
-                maxLines: 10,
-                maxLength: 500,
-                decoration: const InputDecoration(
-                  labelText: 'Message',
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your message';
-                  }
-                  if (value.length > 500) {
-                    return 'Your message cannot exceed 500 characters';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: _submitForm,
-                child: const Text('Send'),
-              ),
-              const SizedBox(height: 20.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.language),
-                    onPressed: () {
-                      // TODO : Don't use deprecated functions see the package official doc for updates.
-                      launch('https://www.rootsoft.dev');
-                    },
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                TextFormField(
+                  controller: nameController,
+                  decoration: const InputDecoration(
+                    labelText: 'Name',
                   ),
-                ],
-              ),
-            ],
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter your name';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: const InputDecoration(
+                    labelText: 'Email',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter your email address';
+                    }
+                    if (!value.contains('@')) {
+                      return 'Please enter a valid email address';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: messageController,
+                  keyboardType: TextInputType.multiline,
+                  maxLines: 10,
+                  maxLength: 500,
+                  decoration: const InputDecoration(
+                    labelText: 'Message',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter your message';
+                    }
+                    if (value.length > 500) {
+                      return 'Your message cannot exceed 500 characters';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: _submitForm,
+                  child: const Text('Send'),
+                ),
+                const SizedBox(height: 20.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.language),
+                      onPressed: () {
+                        // TODO : Don't use deprecated functions see the package official doc for updates.
+                        launch('https://www.rootsoft.dev');
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
