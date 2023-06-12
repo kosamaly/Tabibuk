@@ -12,7 +12,7 @@ class MyDrawer extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Colors.cyan, Colors.cyan, Colors.cyan],
+            colors: [Colors.cyan, Colors.cyan, Colors.cyanAccent],
           ),
         ),
         child: ListView(
@@ -68,29 +68,26 @@ class MyDrawer extends StatelessWidget {
                 if (snapshot.hasData) {
                   final appVersion = snapshot.data!.version;
                   return Column(
-
-
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          " الإصدار",
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0,
-                            color: Colors.white,
-                          ),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        " الإصدار",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0,
+                          color: Colors.white,
                         ),
-                        Text(
-                          appVersion,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0,
-                            color: Colors.white,
-                          ),
+                      ),
+                      Text(
+                        appVersion,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0,
+                          color: Colors.white,
                         ),
-                      ],
-                    ),
-
+                      ),
+                    ],
+                  );
                 } else {
                   return const SizedBox.shrink();
                 }

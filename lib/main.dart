@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tabibuk/ui/screens/contactus.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:tabibuk/ui/screens/home_screen.dart';
 import 'package:tabibuk/ui/screens/splash_screen.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreen(),
         '/home': (context) => const HomeScreen(),
-        '/contact': (context) => const ContactUsScreen(),
+        '/contact': (context) => ContactScreen(),
       },
     );
   }
