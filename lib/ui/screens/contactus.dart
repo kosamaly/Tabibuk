@@ -18,20 +18,22 @@ class ContactScreenState extends State<ContactScreen> {
     final String name = _nameController.text.trim();
     final String email = _emailController.text.trim();
     final String message = _messageController.text.trim().substring(0, 500);
-    final String url = Uri.parse(
-            'https://api.whatsapp.com/send?phone=01064959756&text=name:%20$name%0aemail:%20$email%0amessage:%20$message')
-        as String;
-    if (await launchUrl(Uri.parse as Uri)) {
-      await launchUrl(Uri.parse as Uri);
+    final Uri url = Uri.parse(
+        'https://api.whatsapp.com/send?phone=01064959756&text=name:%20$name%0aemail:%20$email%0amessage:%20$message');
+
+    //  final int x = int.parse("5");
+
+    if (await launchUrl(url)) {
+      await launchUrl(url);
     } else {
       throw 'Could not launch $url';
     }
   }
 
   void _launchWebsite() async {
-    const String url = 'https://www.rootsoft.dev';
-    if (await canLaunchUrl(Uri.parse as Uri)) {
-      await launchUrl(Uri.parse as Uri);
+    final Uri url = Uri.parse('https://www.rootsoft.dev');
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
     } else {
       throw 'Could not launch $url';
     }
@@ -50,7 +52,7 @@ class ContactScreenState extends State<ContactScreen> {
     return Scaffold(
       body: Container(
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Colors.cyan, Colors.cyan, Colors.cyanAccent],
             begin: Alignment.topLeft,
@@ -117,17 +119,17 @@ class ContactScreenState extends State<ContactScreen> {
                 const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: _launchWhatsApp,
-                  child: const Text(
-                    'أرسل',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
                   style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all<Color>(Colors.cyan),
                   ),
+                  child: const Text(
+                    'أرسل',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
                 ),
-                SizedBox(height: 30),
-                Directionality(
+                const SizedBox(height: 30),
+                const Directionality(
                     textDirection: TextDirection.rtl,
                     child: Text(
                       "البريد الإلكتروني",
@@ -136,17 +138,17 @@ class ContactScreenState extends State<ContactScreen> {
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                     )),
-                SizedBox(height: 8),
-                Directionality(
+                const SizedBox(height: 8),
+                const Directionality(
                     textDirection: TextDirection.rtl,
                     child: Text(
                       "hi@Tabeebuk.com",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                Directionality(
+                const Directionality(
                     textDirection: TextDirection.rtl,
                     child: Text(
                       "العنوان",
@@ -155,16 +157,16 @@ class ContactScreenState extends State<ContactScreen> {
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
-                Directionality(
+                const Directionality(
                     textDirection: TextDirection.rtl,
                     child: Text(
                       "جسر الملك عبد العزيز الرياض    المملكه العربيه السعوديه",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     )),
-                SizedBox(height: 80),
+                const SizedBox(height: 80),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
