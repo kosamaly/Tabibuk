@@ -17,7 +17,12 @@ class ContactScreenState extends State<ContactScreen> {
   void _launchWhatsApp() async {
     final String name = _nameController.text.trim();
     final String email = _emailController.text.trim();
-    final String message = _messageController.text.trim().substring(0, 500);
+
+    String message = _messageController.text.trim();
+    if (message.length > 500) {
+      message = message.substring(0, 500);
+    }
+
     final Uri url = Uri.parse(
         'https://api.whatsapp.com/send?phone=01064959756&text=name:%20$name%0aemail:%20$email%0amessage:%20$message');
 

@@ -4,8 +4,9 @@
 <dict>
 <key>LSApplicationQueriesSchemes</key>
 <array>
-  <string>sms</string>
-  <string>tel</string>
+  <string>message</string>
+
+  <string>name</string>
   <string>email</string>
   <string>assala1360@yahoo.com</string>
 </array>
