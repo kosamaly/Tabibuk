@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:tabibuk/helpers/context_extensions.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -16,7 +17,6 @@ class MyDrawer extends StatelessWidget {
           ),
         ),
         child: ListView(
-          padding: EdgeInsets.zero,
           children: <Widget>[
             const DrawerHeader(
               decoration: BoxDecoration(
@@ -59,8 +59,8 @@ class MyDrawer extends StatelessWidget {
                 Navigator.of(context).pushNamed("/contact");
               },
             ),
-            const SizedBox(
-              height: 430,
+            SizedBox(
+              height: context.heightR(0.35),
             ),
             FutureBuilder<PackageInfo>(
               future: PackageInfo.fromPlatform(),
@@ -71,7 +71,7 @@ class MyDrawer extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        " الإصدار",
+                        "الإصدار",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16.0,

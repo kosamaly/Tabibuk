@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tabibuk/configs/themes/dimensions.dart';
+import 'package:tabibuk/helpers/context_extensions.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -24,12 +26,16 @@ class ContactScreenState extends State<ContactScreen> {
     }
 
     final Uri url = Uri.parse(
-        'https://api.whatsapp.com/send?phone=01064959756&text=name:%20$name%0aemail:%20$email%0amessage:%20$message');
+        // NEW
+        'https://wa.me/+201020732368?text=name:%20$name%0aemail:%20$email%0amessage:%20$message'
+        // OLD
+        // 'https://api.whatsapp.com/send?phone=01064959756&text=name:%20$name%0aemail:%20$email%0amessage:%20$message'
+        );
 
     //  final int x = int.parse("5");
 
-    if (await launchUrl(url)) {
-      await launchUrl(url);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url, mode: LaunchMode.externalApplication);
     } else {
       throw 'Could not launch $url';
     }
@@ -38,7 +44,7 @@ class ContactScreenState extends State<ContactScreen> {
   void _launchWebsite() async {
     final Uri url = Uri.parse('https://www.rootsoft.dev');
     if (await canLaunchUrl(url)) {
-      await launchUrl(url);
+      await launchUrl(url, mode: LaunchMode.externalApplication);
     } else {
       throw 'Could not launch $url';
     }
@@ -65,13 +71,13 @@ class ContactScreenState extends State<ContactScreen> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(32),
+          padding: const EdgeInsets.all(D.size3XLarge),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 const Padding(
-                  padding: EdgeInsets.all(36),
+                  padding: EdgeInsets.all(D.size3XLarge),
                   child: Text(
                     "اتصل بنا",
                     style: TextStyle(
@@ -109,21 +115,25 @@ class ContactScreenState extends State<ContactScreen> {
                         )),
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: D.sizeLarge),
                 Directionality(
                   textDirection: TextDirection.rtl,
                   child: TextField(
                     controller: _messageController,
-                    maxLines: 2,
+                    maxLines: 3,
                     decoration: const InputDecoration(
-                      labelText: 'Message (max 500 characters)',
+                      labelText: 'اكتب رسالتك',
                       labelStyle: TextStyle(color: Colors.white),
                     ),
+                    maxLength: 500,
                   ),
                 ),
                 const SizedBox(height: 16),
                 ElevatedButton(
-                  onPressed: _launchWhatsApp,
+                  onPressed: () {
+                    context.unFocusRequest();
+                    _launchWhatsApp();
+                  },
                   style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all<Color>(Colors.cyan),
