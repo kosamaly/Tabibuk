@@ -34,9 +34,7 @@ class _ContactScreenState extends State<ContactScreen> {
     );
 
     if (await canLaunchUrl(url)) {
-      await launchUrl(
-        (url),
-      );
+      await launchUrl(url, mode: LaunchMode.externalApplication);
     } else {
       throw 'Could not launch $url';
     }
@@ -71,6 +69,14 @@ class _ContactScreenState extends State<ContactScreen> {
     return emailRegExp.hasMatch(email);
   }
 
+//request Unfocuce
+  void unFocusRequest() {
+    final currentFocus = FocusScope.of(this as BuildContext);
+    if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+      currentFocus.focusedChild?.unfocus();
+    }
+  }
+
   @override
   void dispose() {
     _nameController.dispose();
@@ -97,7 +103,7 @@ class _ContactScreenState extends State<ContactScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(
                     top: 32.0,
                     left: 2.0,
@@ -109,7 +115,7 @@ class _ContactScreenState extends State<ContactScreen> {
                     ),
                   ),
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(right: 24.0),
                   child: Text(
                     "اتصل بنا",
@@ -127,13 +133,13 @@ class _ContactScreenState extends State<ContactScreen> {
                     decoration: InputDecoration(
                       labelText: 'الاسم',
                       labelStyle:
-                          TextStyle(color: Colors.white, fontSize: 16.0),
+                          const TextStyle(color: Colors.white, fontSize: 16.0),
                       icon: Icon(Icons.person, color: Colors.white),
                       errorText: _nameError ? 'الرجاء إدخال الاسم' : null,
                     ),
                   ),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: D.size3XLarge),
                 Directionality(
                   textDirection: TextDirection.rtl,
                   child: TextField(
@@ -149,7 +155,7 @@ class _ContactScreenState extends State<ContactScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 16.0),
+                SizedBox(height: D.sizeXLarge),
                 Directionality(
                   textDirection: TextDirection.rtl,
                   child: TextField(
@@ -164,14 +170,18 @@ class _ContactScreenState extends State<ContactScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 16.0),
+                SizedBox(height: D.sizeLarge),
                 ElevatedButton(
-                  onPressed: _validateFields,
+                  onPressed: () {
+                    _validateFields();
+                    context.unFocusRequest();
+                    // _launchWhatsApp();
+                  },
                   style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all<Color>(Colors.cyan),
                   ),
-                  child: Text(
+                  child: const Text(
                     'أرسل',
                     style: TextStyle(
                       fontSize: 20.0,
@@ -197,7 +207,7 @@ class _ContactScreenState extends State<ContactScreen> {
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     )),
                 const SizedBox(
-                  height: 20,
+                  height: D.sizeXLarge,
                 ),
                 const Directionality(
                     textDirection: TextDirection.rtl,
@@ -209,7 +219,7 @@ class _ContactScreenState extends State<ContactScreen> {
                           fontWeight: FontWeight.bold),
                     )),
                 const SizedBox(
-                  height: 8,
+                  height: D.sizeXLarge,
                 ),
                 const Directionality(
                     textDirection: TextDirection.rtl,
