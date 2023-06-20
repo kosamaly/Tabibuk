@@ -6,7 +6,7 @@ import 'package:tabibuk/ui/screens/home_screen.dart';
 import 'package:tabibuk/ui/screens/splash_screen.dart';
 
 import 'logic/providers/categories_provider.dart';
-import 'ui/Categories_Screen.dart';
+import 'ui/screens/Categories_Screen.dart';
 
 void main() {
   runApp(const MyApp());
