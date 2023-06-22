@@ -41,8 +41,8 @@ class SplashScreenState extends State<SplashScreen>
         child: FadeTransition(
           opacity: animation,
           child: Container(
-            width: 200,
-            height: 200,
+            width: 320,
+            height: 320,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('images/logo.png'),

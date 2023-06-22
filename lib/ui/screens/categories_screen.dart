@@ -21,13 +21,14 @@ class CategoriesScreen extends StatelessWidget {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
             return ListView.builder(
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
               itemCount: categories.length,
               itemBuilder: (context, index) {
                 final category = categories[index];
 
                 return ListTile(
-                  title: Text(category.id),
-                  // Add other UI components as per your design.
+                  title: Text(category.id as String),
                 );
               },
             );

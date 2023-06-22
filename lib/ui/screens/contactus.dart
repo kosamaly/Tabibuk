@@ -219,7 +219,7 @@ class _ContactScreenState extends State<ContactScreen> {
                           fontWeight: FontWeight.bold),
                     )),
                 const SizedBox(
-                  height: D.sizeXLarge,
+                  height: D.sizeLarge,
                 ),
                 const Directionality(
                     textDirection: TextDirection.rtl,
