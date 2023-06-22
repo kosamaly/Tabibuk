@@ -43,6 +43,8 @@ dependencies:
   url_launcher: ^6.1.11
   package_info_plus: ^4.0.2
   font_awesome_flutter: ^10.4.0
+  dio: ^5.2.1+1
+  provider: ^6.0.5
 
 
 dev_dependencies:
