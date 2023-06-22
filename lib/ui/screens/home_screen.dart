@@ -1,17 +1,15 @@
-import 'package:flutter/foundation.dart';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:tabibuk/ui/screens/drawer.dart';
-import '../../logic/providers/categories_provider.dart';
+import 'package:tabibuk/ui/widgets/categories_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final categoriesProvider = Provider.of<CategoriesProvider>(context);
-    final categories = categoriesProvider.categories;
-
+    log("Home Rebuild");
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -39,55 +37,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            FutureBuilder(
-              future: categoriesProvider.fetchCategories(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(
-                    child: CircularProgressIndicator(
-                      color: Colors.cyan,
-                    ),
-                  );
-                } else if (snapshot.hasError) {
-                  return Center(
-                    child: Text('Error: ${snapshot.error}'),
-                  );
-                } else {
-                  if (categories != null) {
-                    // Added null check for 'categories'
-                    return SizedBox(
-                      height: 100,
-                      child: Row(
-                        children: [
-                          ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            shrinkWrap: true,
-                            itemCount: categories.length,
-                            itemBuilder: (context, index) {
-                              final category = categories[index];
-                              return Row(
-                                children: [
-                                  ListTile(
-                                    title: Text(
-                                      category.name,
-                                      style: const TextStyle(
-                                        color: Colors.cyanAccent,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                    );
-                  } else {
-                    return const SizedBox();
-                  }
-                }
-              },
-            )
+            const CategoriesList(),
           ],
         ),
       ),

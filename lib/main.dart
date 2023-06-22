@@ -6,7 +6,6 @@ import 'package:tabibuk/ui/screens/home_screen.dart';
 import 'package:tabibuk/ui/screens/splash_screen.dart';
 
 import 'logic/providers/categories_provider.dart';
-import 'ui/screens/categories_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +32,6 @@ class MyApp extends StatelessWidget {
           '/': (context) => const SplashScreen(),
           '/home': (context) => const HomeScreen(),
           '/contact': (context) => const ContactScreen(),
-          // '/category': (context) => CategoriesScreen(),
         },
       ),
     );
