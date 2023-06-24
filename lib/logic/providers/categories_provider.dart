@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:tabibuk/data/remote/endpoints.dart';
 import '../../data/models/category_model.dart';
 
 class CategoriesProvider with ChangeNotifier {
@@ -25,9 +26,9 @@ class CategoriesProvider with ChangeNotifier {
       _isLoading = true;
       notifyListeners();
 
-      final response =
-          await Dio().get('https://72lg3.wiremockapi.cloud/categories');
-      final rawCategoriesData = response.data['data']['categories'];
+      // Added a class for endpoints
+      final response = await Dio().get(Endpoints.categories);
+      final rawCategoriesData = response.data;
       debugPrint(rawCategoriesData.toString());
 
       _categories = (rawCategoriesData as List)

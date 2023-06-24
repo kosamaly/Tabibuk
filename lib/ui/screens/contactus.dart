@@ -8,10 +8,10 @@ class ContactScreen extends StatefulWidget {
   const ContactScreen({Key? key}) : super(key: key);
 
   @override
-  _ContactScreenState createState() => _ContactScreenState();
+  ContactScreenState createState() => ContactScreenState();
 }
 
-class _ContactScreenState extends State<ContactScreen> {
+class ContactScreenState extends State<ContactScreen> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _messageController = TextEditingController();
@@ -134,7 +134,7 @@ class _ContactScreenState extends State<ContactScreen> {
                       labelText: 'الاسم',
                       labelStyle:
                           const TextStyle(color: Colors.white, fontSize: 16.0),
-                      icon: Icon(Icons.person, color: Colors.white),
+                      icon: const Icon(Icons.person, color: Colors.white),
                       errorText: _nameError ? 'الرجاء إدخال الاسم' : null,
                     ),
                   ),
@@ -147,15 +147,15 @@ class _ContactScreenState extends State<ContactScreen> {
                     decoration: InputDecoration(
                       labelText: 'البريد الإلكتروني',
                       labelStyle:
-                          TextStyle(color: Colors.white, fontSize: 16.0),
-                      icon: Icon(Icons.email, color: Colors.white),
+                          const TextStyle(color: Colors.white, fontSize: 16.0),
+                      icon: const Icon(Icons.email, color: Colors.white),
                       errorText: _emailError
                           ? 'الرجاء إدخال بريد إلكتروني صحيح'
                           : null,
                     ),
                   ),
                 ),
-                SizedBox(height: D.sizeXLarge),
+                const SizedBox(height: D.sizeXLarge),
                 Directionality(
                   textDirection: TextDirection.rtl,
                   child: TextField(
@@ -165,12 +165,12 @@ class _ContactScreenState extends State<ContactScreen> {
                     decoration: InputDecoration(
                       labelText: 'اكتب رسالتك',
                       labelStyle:
-                          TextStyle(color: Colors.white, fontSize: 16.0),
+                          const TextStyle(color: Colors.white, fontSize: 16.0),
                       errorText: _messageError ? 'الرجاء إدخال الرسالة' : null,
                     ),
                   ),
                 ),
-                SizedBox(height: D.sizeLarge),
+                const SizedBox(height: D.sizeLarge),
                 ElevatedButton(
                   onPressed: () {
                     _validateFields();
