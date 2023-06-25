@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tabibuk/helpers/context_extensions.dart';
 import 'package:tabibuk/helpers/ui_helpers.dart';
 import 'package:tabibuk/logic/providers/categories_provider.dart';
+import 'package:tabibuk/ui/widgets/category_card.dart';
 
 class CategoriesList extends StatefulWidget {
   const CategoriesList({super.key});
@@ -37,22 +39,13 @@ class _CategoriesListState extends State<CategoriesList> {
       );
     } else {
       return SizedBox(
-        height: 100,
+        height: context.heightR(0.17),
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          shrinkWrap: true,
           itemCount: categories.length,
           itemBuilder: (context, index) {
             final category = categories[index];
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                category.name,
-                style: TextStyle(
-                  color: Colors.cyan.shade600,
-                ),
-              ),
-            );
+            return CategoryCard(category: category);
           },
         ),
       );

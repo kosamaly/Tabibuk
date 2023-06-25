@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:tabibuk/helpers/context_extensions.dart';
 import 'package:tabibuk/ui/screens/drawer.dart';
 import 'package:tabibuk/ui/widgets/categories_list.dart';
 
@@ -23,19 +24,14 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.only(top: 16),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 300,
-                  height: 300,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('images/logo2.png'),
-                    ),
-                  ),
+            Container(
+              width: context.widthR(0.6),
+              height: context.heightR(0.24),
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('images/logo2.png'),
                 ),
-              ],
+              ),
             ),
             const CategoriesList(),
           ],
