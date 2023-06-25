@@ -5,6 +5,9 @@ import 'package:tabibuk/helpers/context_extensions.dart';
 import 'package:tabibuk/ui/screens/drawer.dart';
 import 'package:tabibuk/ui/widgets/categories_list.dart';
 
+import '../../data/models/categor_card.dart';
+import '../../data/models/category_model.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -34,6 +37,12 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const CategoriesList(),
+            CategoryCard(
+              categories: CategoryModel(
+                id: 1, name: 'kk', image: ('images/logo2.png'),
+                // Category properties
+              ),
+            ),
           ],
         ),
       ),
