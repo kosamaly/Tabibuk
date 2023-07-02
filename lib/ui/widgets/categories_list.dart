@@ -39,16 +39,28 @@ class _CategoriesListState extends State<CategoriesList> {
       );
     } else {
       return SizedBox(
-        height: context.heightR(0.17),
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: categories.length,
-          itemBuilder: (context, index) {
-            final category = categories[index];
-            return CategoryCard(category: category);
-          },
-        ),
-      );
+          height: 144,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: categories.length,
+            itemBuilder: (context, index) {
+              final category = categories[index];
+              return Padding(
+                padding: const EdgeInsets.only(
+                    right: 8,
+                    left: 8,
+                    bottom: 8,
+                    top: 8), // Add desired spacing between cards here
+                child: SizedBox(
+                  width: 200, // Set the desired width
+                  // Set the desired height
+                  child: CategoryCard(
+                      category:
+                          category), // Replace CategoryCard with your custom widget
+                ),
+              );
+            },
+          ));
     }
   }
 }

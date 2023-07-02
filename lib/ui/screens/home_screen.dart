@@ -37,12 +37,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const CategoriesList(),
-            CategoryCard(
-              categories: CategoryModel(
-                id: 1, name: 'kk', image: ('images/logo2.png'),
-                // Category properties
-              ),
-            ),
           ],
         ),
       ),
