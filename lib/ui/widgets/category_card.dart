@@ -4,11 +4,6 @@ import 'package:flutter/widgets.dart';
 import 'package:tabibuk/configs/themes/dimensions.dart';
 import '../../data/models/category_model.dart';
 
-// todo: - make it identical to design.
-// todo: - make it clickable and when pressed (selected) show a blue glow around it.
-// todo: - hints: you may need an isSelected state for this widget
-// todo: - hints: the glow could be made with the decoration property of the container.
-
 class CategoryCard extends StatefulWidget {
   final CategoryModel category;
 
@@ -30,29 +25,24 @@ class _CategoryCardState extends State<CategoryCard> {
         });
       },
       child: Container(
-
-
-decoration: BoxDecoration(
-  color: Colors.white,
-  borderRadius: BorderRadius.circular(16),
-  boxShadow: [
-    BoxShadow(
-      color: isSelected ? Colors.blue.withOpacity(0.5) : Colors.grey.withOpacity(0.1),
-      blurRadius: isSelected ? 15 : 15,
-      spreadRadius: isSelected ? 1 : 1,
-      offset: isSelected ? Offset(2, 2) : Offset(2, 2),
-    ),
-    BoxShadow(
-      color: isSelected ? Colors.blue.withOpacity(0.5) : Colors.grey.withOpacity(0.4),
-      blurRadius: isSelected ? 6 : 6,
-      spreadRadius: isSelected ? 3 : 3,
-      offset: isSelected ? Offset(1, 1) : Offset(1,1 ), // Added bottom shadow
-    ),
-  ],
-
-),
-
-
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: isSelected ? Colors.blue.withOpacity(0.5) : Colors.grey.withOpacity(0.1),
+              blurRadius: isSelected ? 15 : 15,
+              spreadRadius: isSelected ? 1 : 1,
+              offset: isSelected ? Offset(2, 2) : Offset(2, 2),
+            ),
+            BoxShadow(
+              color: isSelected ? Colors.blue.withOpacity(0.5) : Colors.grey.withOpacity(0.4),
+              blurRadius: isSelected ? 6 : 6,
+              spreadRadius: isSelected ? 3 : 3,
+              offset: isSelected ? Offset(1, 1) : Offset(1, 1),
+            ),
+          ],
+        ),
         padding: const EdgeInsets.all(9),
         child: Column(
           children: [
@@ -65,7 +55,7 @@ decoration: BoxDecoration(
             Text(
               widget.category.name,
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 11,
                 fontWeight: FontWeight.bold,
               ),
             ),

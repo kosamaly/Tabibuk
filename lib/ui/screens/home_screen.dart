@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             Container(
               width: context.widthR(0.6),
-              height: context.heightR(0.24),
+              height: context.heightR(0.20),
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('images/logo2.png'),
@@ -37,6 +37,16 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const CategoriesList(),
+            SizedBox(
+              height: context.heightR(0.12),
+            ),
+            Text(
+              "وَإِذَا مَرِضْتُ فَهُوَ يَشْفِيْنِ",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 28,
+                  color: Colors.cyan),
+            ),
           ],
         ),
       ),

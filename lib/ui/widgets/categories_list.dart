@@ -39,7 +39,7 @@ class _CategoriesListState extends State<CategoriesList> {
       );
     } else {
       return SizedBox(
-          height: 144,
+          height: 133,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: categories.length,
@@ -49,10 +49,10 @@ class _CategoriesListState extends State<CategoriesList> {
                 padding: const EdgeInsets.only(
                     right: 8,
                     left: 8,
-                    bottom: 8,
-                    top: 8), // Add desired spacing between cards here
+                    bottom: 5,
+                    top: 5), // Add desired spacing between cards here
                 child: SizedBox(
-                  width: 200, // Set the desired width
+                  width: 150, // Set the desired width
                   // Set the desired height
                   child: CategoryCard(
                       category:
