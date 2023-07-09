@@ -1,19 +1,19 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tabibuk/configs/themes/dimensions.dart';
+import 'package:tabibuk/data/models/doctors_model.dart';
 import '../../data/models/category_model.dart';
 
-class CategoryCard extends StatefulWidget {
-  final CategoryModel category;
+class DoctorCard extends StatefulWidget {
+  final DoctorsModel doctor;
 
-  const CategoryCard({Key? key, required this.category}) : super(key: key);
+  const DoctorCard({Key? key, required this.doctor}) : super(key: key);
 
   @override
-  _CategoryCardState createState() => _CategoryCardState();
+  _DoctorCardState createState() => _DoctorCardState();
 }
 
-class _CategoryCardState extends State<CategoryCard> {
+class _DoctorCardState extends State<DoctorCard> {
   bool isSelected = false;
 
   @override
@@ -30,13 +30,17 @@ class _CategoryCardState extends State<CategoryCard> {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: isSelected ? Colors.blue.withOpacity(0.5) : Colors.grey.withOpacity(0.1),
+              color: isSelected
+                  ? Colors.blue.withOpacity(0.5)
+                  : Colors.grey.withOpacity(0.1),
               blurRadius: isSelected ? 15 : 15,
               spreadRadius: isSelected ? 1 : 1,
               offset: isSelected ? Offset(2, 2) : Offset(2, 2),
             ),
             BoxShadow(
-              color: isSelected ? Colors.blue.withOpacity(0.5) : Colors.grey.withOpacity(0.4),
+              color: isSelected
+                  ? Colors.blue.withOpacity(0.5)
+                  : Colors.grey.withOpacity(0.4),
               blurRadius: isSelected ? 6 : 6,
               spreadRadius: isSelected ? 3 : 3,
               offset: isSelected ? Offset(1, 1) : Offset(1, 1),
@@ -47,13 +51,13 @@ class _CategoryCardState extends State<CategoryCard> {
         child: Column(
           children: [
             Image.network(
-              widget.category.image,
+              widget.doctor.image,
               width: 60,
               fit: BoxFit.contain,
             ),
             SizedBox(height: 20),
             Text(
-              widget.category.name,
+              widget.doctor.name,
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
@@ -65,4 +69,3 @@ class _CategoryCardState extends State<CategoryCard> {
     );
   }
 }
-

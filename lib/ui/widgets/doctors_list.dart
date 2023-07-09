@@ -2,32 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tabibuk/helpers/context_extensions.dart';
 import 'package:tabibuk/helpers/ui_helpers.dart';
-import 'package:tabibuk/logic/providers/categories_provider.dart';
+import 'package:tabibuk/logic/providers/doctors_Provider.dart';
 
-import 'categor_card.dart';
+import 'doctors_card.dart';
 
-class CategoriesList extends StatefulWidget {
-  const CategoriesList({super.key});
+class DoctorsList extends StatefulWidget {
+  const DoctorsList({super.key});
 
   @override
-  State<CategoriesList> createState() => _CategoriesListState();
+  State<DoctorsList> createState() => _DoctorsListState();
 }
 
-class _CategoriesListState extends State<CategoriesList> {
+class _DoctorsListState extends State<DoctorsList> {
   @override
   void initState() {
     super.initState();
     UiHelper.postBuild((_) {
-      context.read<CategoriesProvider>().fetchCategories();
+      context.read<DoctorsProvider>().fetchDoctors();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final categoriesProvider = context.watch<CategoriesProvider>();
-    final categories = categoriesProvider.categories;
-    final isLoading = categoriesProvider.isLoading;
-    final isError = categoriesProvider.isError;
+    final doctorsProvider = context.watch<DoctorsProvider>();
+    final doctors = doctorsProvider.doctors;
+    final isLoading = doctorsProvider.isLoading;
+    final isError = doctorsProvider.isError;
 
     if (isLoading) {
       return const Center(
@@ -43,9 +43,9 @@ class _CategoriesListState extends State<CategoriesList> {
           height: 133,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: categories.length,
+            itemCount: doctors.length,
             itemBuilder: (context, index) {
-              final category = categories[index];
+              final doctor = doctors[index];
               return Padding(
                 padding: const EdgeInsets.only(
                     right: 8,
@@ -55,9 +55,9 @@ class _CategoriesListState extends State<CategoriesList> {
                 child: SizedBox(
                   width: 150, // Set the desired width
                   // Set the desired height
-                  child: CategoryCard(
-                      category:
-                          category), // Replace CategoryCard with your custom widget
+                  child: DoctorCard(
+                      doctor:
+                          doctor), // Replace CategoryCard with your custom widget
                 ),
               );
             },

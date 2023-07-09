@@ -3,12 +3,15 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tabibuk/ui/screens/contactus.dart';
+import 'package:tabibuk/ui/screens/doctors_screen.dart';
 
 import 'package:tabibuk/ui/screens/home_screen.dart';
 import 'package:tabibuk/ui/screens/splash_screen.dart';
 
 import 'logic/providers/categories_provider.dart';
 import 'dart:math';
+
+import 'logic/providers/doctors_Provider.dart';
 
 double calculate(double x) {
   return (pow(x, 3) + sqrt(x) + 10).toDouble();
@@ -29,6 +32,7 @@ class MyApp extends StatelessWidget {
       providers: [
         // Provide CategoriesProvider here
         ChangeNotifierProvider(create: (_) => CategoriesProvider()),
+        ChangeNotifierProvider(create: (_) => DoctorsProvider()),
         // Add more providers if needed
       ],
       child: MaterialApp(
@@ -40,6 +44,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const SplashScreen(),
           '/home': (context) => const HomeScreen(),
+          '/doctors': (context) => const DoctorsScreen(),
           '/contact': (context) => const ContactScreen(),
         },
       ),
