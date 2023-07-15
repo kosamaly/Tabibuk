@@ -1,31 +1,26 @@
 import 'package:flutter/material.dart';
 import '../../data/models/category_model.dart';
-import 'doctors_list.dart';
 
+/// TODO Use Selected Category Provider
 class CategoryCard extends StatefulWidget {
   final CategoryModel category;
 
   const CategoryCard({Key? key, required this.category}) : super(key: key);
 
   @override
-  _CategoryCardState createState() => _CategoryCardState();
+  CategoryCardState createState() => CategoryCardState();
 }
 
-class _CategoryCardState extends State<CategoryCard> {
-  final ValueNotifier<bool> isSelected = ValueNotifier<bool>(false);
+class CategoryCardState extends State<CategoryCard> {
+  bool isSelected = false;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) =>
-                DoctorsList(categoryId: widget.category.categoryId.toString()),
-          ),
-        );
-        isSelected.value = true;
+        setState(() {
+          isSelected = true;
+        });
       },
       child: Container(
         decoration: BoxDecoration(
@@ -33,22 +28,20 @@ class _CategoryCardState extends State<CategoryCard> {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: isSelected.value
+              color: isSelected
                   ? Colors.blue.withOpacity(0.5)
                   : Colors.grey.withOpacity(0.1),
-              blurRadius: isSelected.value ? 15 : 15,
-              spreadRadius: isSelected.value ? 1 : 1,
-              offset:
-                  isSelected.value ? const Offset(2, 2) : const Offset(2, 2),
+              blurRadius: isSelected ? 15 : 15,
+              spreadRadius: isSelected ? 1 : 1,
+              offset: isSelected ? const Offset(2, 2) : const Offset(2, 2),
             ),
             BoxShadow(
-              color: isSelected.value
+              color: isSelected
                   ? Colors.blue.withOpacity(0.5)
                   : Colors.grey.withOpacity(0.4),
-              blurRadius: isSelected.value ? 6 : 6,
-              spreadRadius: isSelected.value ? 3 : 3,
-              offset:
-                  isSelected.value ? const Offset(1, 1) : const Offset(1, 1),
+              blurRadius: isSelected ? 6 : 6,
+              spreadRadius: isSelected ? 3 : 3,
+              offset: isSelected ? const Offset(1, 1) : const Offset(1, 1),
             ),
           ],
         ),

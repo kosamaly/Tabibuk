@@ -35,13 +35,13 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const CategoriesList(),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               SizedBox(
                 height: context.heightR(0.12),
               ),
-              Text(
+              const Text(
                 "وَإِذَا مَرِضْتُ فَهُوَ يَشْفِيْنِ",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,

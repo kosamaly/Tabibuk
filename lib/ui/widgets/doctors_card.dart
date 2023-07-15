@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:tabibuk/configs/themes/dimensions.dart';
 import 'package:tabibuk/data/models/doctors_model.dart';
-import '../../data/models/category_model.dart';
 
 class DoctorCard extends StatefulWidget {
   final DoctorsModel doctor;
@@ -10,14 +7,15 @@ class DoctorCard extends StatefulWidget {
   const DoctorCard({Key? key, required this.doctor}) : super(key: key);
 
   @override
-  _DoctorCardState createState() => _DoctorCardState();
+  DoctorCardState createState() => DoctorCardState();
 }
 
-class _DoctorCardState extends State<DoctorCard> {
+class DoctorCardState extends State<DoctorCard> {
   bool isSelected = false;
 
   @override
   Widget build(BuildContext context) {
+    debugPrint(widget.doctor.name);
     return GestureDetector(
       onTap: () {
         setState(() {

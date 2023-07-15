@@ -26,6 +26,7 @@ class DoctorsProvider extends ChangeNotifier {
       _doctors = (rawCategoriesData as List)
           .map((data) => DoctorsModel.fromJson(data))
           .toList();
+      isLoading = false;
       notifyListeners();
     } catch (e, stacktrace) {
       debugPrint('Failed to fetch or parse doctors: $e');

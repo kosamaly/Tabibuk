@@ -36,7 +36,7 @@ class DoctorsScreen extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(
                   top: 32.0,
                   left: 2.0,
