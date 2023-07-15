@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tabibuk/helpers/context_extensions.dart';
 import 'package:tabibuk/helpers/ui_helpers.dart';
 import 'package:tabibuk/logic/providers/categories_provider.dart';
-
-import 'categor_card.dart';
+import 'package:tabibuk/ui/widgets/category_card.dart';
 
 class CategoriesList extends StatefulWidget {
   const CategoriesList({super.key});
@@ -39,7 +39,7 @@ class _CategoriesListState extends State<CategoriesList> {
       );
     } else {
       return SizedBox(
-          height: 133,
+          height: context.heightR(0.2),
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: categories.length,
@@ -52,7 +52,7 @@ class _CategoriesListState extends State<CategoriesList> {
                     bottom: 5,
                     top: 5), // Add desired spacing between cards here
                 child: SizedBox(
-                  width: 150,
+                  width: context.widthR(0.4),
                   // Set the desired height
                   child: CategoryCard(
                       category:

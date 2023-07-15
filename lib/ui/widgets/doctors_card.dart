@@ -35,7 +35,7 @@ class _DoctorCardState extends State<DoctorCard> {
                   : Colors.grey.withOpacity(0.1),
               blurRadius: isSelected ? 15 : 15,
               spreadRadius: isSelected ? 1 : 1,
-              offset: isSelected ? Offset(2, 2) : Offset(2, 2),
+              offset: isSelected ? const Offset(2, 2) : const Offset(2, 2),
             ),
             BoxShadow(
               color: isSelected
@@ -43,7 +43,7 @@ class _DoctorCardState extends State<DoctorCard> {
                   : Colors.grey.withOpacity(0.4),
               blurRadius: isSelected ? 6 : 6,
               spreadRadius: isSelected ? 3 : 3,
-              offset: isSelected ? Offset(1, 1) : Offset(1, 1),
+              offset: isSelected ? const Offset(1, 1) : const Offset(1, 1),
             ),
           ],
         ),
@@ -55,10 +55,10 @@ class _DoctorCardState extends State<DoctorCard> {
               width: 60,
               fit: BoxFit.contain,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               widget.doctor.name,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
               ),
