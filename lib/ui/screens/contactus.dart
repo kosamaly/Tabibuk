@@ -105,7 +105,7 @@ class ContactScreenState extends State<ContactScreen> {
               children: [
                 const Padding(
                   padding: EdgeInsets.only(
-                    top: 32.0,
+                    top: 16.0,
                     left: 2.0,
                   ),
                   child: Directionality(
@@ -139,7 +139,7 @@ class ContactScreenState extends State<ContactScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: D.size3XLarge),
+                const SizedBox(height: D.sizeSmall),
                 Directionality(
                   textDirection: TextDirection.rtl,
                   child: TextField(
@@ -155,7 +155,7 @@ class ContactScreenState extends State<ContactScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: D.sizeXLarge),
+                const SizedBox(height: D.sizeSmall),
                 Directionality(
                   textDirection: TextDirection.rtl,
                   child: TextField(
@@ -170,7 +170,7 @@ class ContactScreenState extends State<ContactScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: D.sizeLarge),
+                const SizedBox(height: D.sizeSmall),
                 ElevatedButton(
                   onPressed: () {
                     _validateFields();
@@ -189,7 +189,7 @@ class ContactScreenState extends State<ContactScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: D.sizeXLarge),
+                const SizedBox(height: D.sizeSmall),
                 const Directionality(
                     textDirection: TextDirection.rtl,
                     child: Text(
@@ -199,7 +199,7 @@ class ContactScreenState extends State<ContactScreen> {
                           fontSize: 18,
                           fontWeight: FontWeight.bold),
                     )),
-                const SizedBox(height: 8),
+                const SizedBox(height: 5),
                 const Directionality(
                     textDirection: TextDirection.rtl,
                     child: Text(
@@ -207,7 +207,7 @@ class ContactScreenState extends State<ContactScreen> {
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     )),
                 const SizedBox(
-                  height: D.sizeXLarge,
+                  height: D.sizeSmall,
                 ),
                 const Directionality(
                     textDirection: TextDirection.rtl,
@@ -219,7 +219,7 @@ class ContactScreenState extends State<ContactScreen> {
                           fontWeight: FontWeight.bold),
                     )),
                 const SizedBox(
-                  height: D.sizeLarge,
+                  height: D.sizeSmall,
                 ),
                 const Directionality(
                     textDirection: TextDirection.rtl,
@@ -227,26 +227,32 @@ class ContactScreenState extends State<ContactScreen> {
                       "جسر الملك عبد العزيز الرياض المملكه العربيه السعوديه",
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     )),
-                const SizedBox(height: D.size3XLarge),
+                const SizedBox(height: D.sizeLarge),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    IconButton(
+                    Flexible(
+                      child: IconButton(
+                          onPressed: _launchWebsite,
+                          icon: const Icon(Icons.public,
+                              color: Colors.white, size: 32)),
+                    ),
+                    Flexible(
+                      child: IconButton(
                         onPressed: _launchWebsite,
-                        icon: const Icon(Icons.public,
-                            color: Colors.white, size: 32)),
-                    IconButton(
-                      onPressed: _launchWebsite,
-                      icon: const FaIcon(
-                        FontAwesomeIcons.facebook,
-                        color: Colors.white,
-                        size: 32,
+                        icon: const FaIcon(
+                          FontAwesomeIcons.facebook,
+                          color: Colors.white,
+                          size: 32,
+                        ),
                       ),
                     ),
-                    IconButton(
-                      onPressed: _launchWebsite,
-                      icon: const FaIcon(FontAwesomeIcons.instagram,
-                          color: Colors.white, size: 32),
+                    Flexible(
+                      child: IconButton(
+                        onPressed: _launchWebsite,
+                        icon: const FaIcon(FontAwesomeIcons.instagram,
+                            color: Colors.white, size: 32),
+                      ),
                     ),
                   ],
                 ),

@@ -9,7 +9,6 @@ import 'package:tabibuk/ui/screens/home_screen.dart';
 import 'package:tabibuk/ui/screens/splash_screen.dart';
 
 import 'logic/providers/categories_provider.dart';
-import 'dart:math';
 
 import 'logic/providers/doctors_Provider.dart';
 
@@ -28,6 +27,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const categoryId = "0"; // Replace with the actual categoryId value
     return MultiProvider(
       providers: [
         // Provide CategoriesProvider here
@@ -44,7 +44,9 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const SplashScreen(),
           '/home': (context) => const HomeScreen(),
-          '/doctors': (context) => const DoctorsScreen(),
+          '/doctors': (context) => const DoctorsScreen(
+                categoryId: categoryId,
+              ),
           '/contact': (context) => const ContactScreen(),
         },
       ),

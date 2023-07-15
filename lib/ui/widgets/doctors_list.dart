@@ -1,31 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:dio/dio.dart';
 import 'package:provider/provider.dart';
-import 'package:tabibuk/helpers/context_extensions.dart';
-import 'package:tabibuk/helpers/ui_helpers.dart';
-import 'package:tabibuk/logic/providers/doctors_Provider.dart';
+import 'package:tabibuk/logic/providers/doctors_provider.dart';
 
 import 'doctors_card.dart';
 
 class DoctorsList extends StatefulWidget {
-  const DoctorsList({super.key});
+  final String categoryId;
+  DoctorsList({required this.categoryId});
 
   @override
-  State<DoctorsList> createState() => _DoctorsListState();
+  _DoctorsListState createState() => _DoctorsListState();
 }
 
 class _DoctorsListState extends State<DoctorsList> {
+  List<dynamic> doctors = [];
+
   @override
   void initState() {
     super.initState();
-    UiHelper.postBuild((_) {
-      context.read<DoctorsProvider>().fetchDoctors();
-    });
+    fetchDoctors();
+  }
+
+  void fetchDoctors() async {
+    try {
+      final response = await Dio().get(
+        'https://example.com/doctors',
+        queryParameters: {'category_id': widget.categoryId},
+      );
+      setState(() {
+        doctors = response.data;
+      });
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final doctorsProvider = context.watch<DoctorsProvider>();
-    final doctors = doctorsProvider.doctors;
     final isLoading = doctorsProvider.isLoading;
     final isError = doctorsProvider.isError;
 

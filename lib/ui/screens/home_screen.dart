@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:tabibuk/helpers/context_extensions.dart';
 import 'package:tabibuk/ui/screens/drawer.dart';
 import 'package:tabibuk/ui/widgets/categories_list.dart';
-import 'package:tabibuk/ui/widgets/doctors_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -21,34 +20,36 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Home'),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 16),
-        child: Column(
-          children: [
-            Container(
-              width: context.widthR(0.6),
-              height: context.heightR(0.20),
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('images/logo2.png'),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 16),
+          child: Column(
+            children: [
+              Container(
+                width: context.widthR(0.6),
+                height: context.heightR(0.20),
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('images/logo2.png'),
+                  ),
                 ),
               ),
-            ),
-            const CategoriesList(),
-            SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              height: context.heightR(0.12),
-            ),
-            Text(
-              "وَإِذَا مَرِضْتُ فَهُوَ يَشْفِيْنِ",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 28,
-                  color: Colors.cyan),
-            ),
-          ],
+              const CategoriesList(),
+              SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                height: context.heightR(0.12),
+              ),
+              Text(
+                "وَإِذَا مَرِضْتُ فَهُوَ يَشْفِيْنِ",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 28,
+                    color: Colors.cyan),
+              ),
+            ],
+          ),
         ),
       ),
       endDrawer: const MyDrawer(),

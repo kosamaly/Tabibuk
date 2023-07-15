@@ -1,11 +1,11 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:tabibuk/helpers/context_extensions.dart';
 import 'package:tabibuk/ui/widgets/doctors_list.dart';
 
 class DoctorsScreen extends StatelessWidget {
-  const DoctorsScreen({Key? key}) : super(key: key);
+  final String categoryId;
+
+  const DoctorsScreen({Key? key, required this.categoryId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,20 +36,11 @@ class DoctorsScreen extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(
                   top: 32.0,
                   left: 2.0,
                 ),
-                // child: Directionality(
-                //   textDirection: TextDirection.rtl,
-                //   child: BackButton(
-                //     onPressed: () {
-                //       Navigator.pop(context);
-                //     },
-                //     color: Colors.black,
-                //   ),
-                // ),
               ),
               Container(
                 width: context.widthR(0.6),
@@ -60,10 +51,7 @@ class DoctorsScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const DoctorsList(),
-              SizedBox(
-                height: context.heightR(0.12),
-              ),
+              DoctorsList(categoryId: categoryId),
             ],
           ),
         ),

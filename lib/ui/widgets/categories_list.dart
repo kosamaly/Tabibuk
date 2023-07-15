@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tabibuk/helpers/context_extensions.dart';
 import 'package:tabibuk/helpers/ui_helpers.dart';
 import 'package:tabibuk/logic/providers/categories_provider.dart';
 
@@ -53,7 +52,7 @@ class _CategoriesListState extends State<CategoriesList> {
                     bottom: 5,
                     top: 5), // Add desired spacing between cards here
                 child: SizedBox(
-                  width: 150, // Set the desired width
+                  width: 150,
                   // Set the desired height
                   child: CategoryCard(
                       category:
