@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../data/models/category_model.dart';
 
-/// TODO Use Selected Category Provider
 class CategoryCard extends StatefulWidget {
   final CategoryModel category;
 
@@ -16,6 +15,9 @@ class CategoryCardState extends State<CategoryCard> {
 
   @override
   Widget build(BuildContext context) {
+    /// TODO 2 Use Selected Category Provider
+    // bool isSelected =     widget.category.categoryId == valueFromProvider;
+
     return GestureDetector(
       onTap: () {
         setState(() {
