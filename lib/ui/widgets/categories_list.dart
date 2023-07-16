@@ -39,7 +39,7 @@ class _CategoriesListState extends State<CategoriesList> {
       );
     } else {
       return SizedBox(
-          height: context.heightR(0.2),
+          height: context.heightR(0.16),
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: categories.length,
@@ -53,6 +53,7 @@ class _CategoriesListState extends State<CategoriesList> {
                     top: 5), // Add desired spacing between cards here
                 child: SizedBox(
                   width: context.widthR(0.4),
+
                   // Set the desired height
                   child: CategoryCard(
                       category:

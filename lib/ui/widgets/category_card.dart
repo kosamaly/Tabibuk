@@ -1,75 +1,86 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../data/models/category_model.dart';
+import '../../logic/providers/selected_category_provider.dart';
+import '../../logic/providers/selected_categoy_provider.dart';
 
-class CategoryCard extends StatefulWidget {
+class CategoryCard extends StatelessWidget {
   final CategoryModel category;
 
   const CategoryCard({Key? key, required this.category}) : super(key: key);
 
   @override
-  CategoryCardState createState() => CategoryCardState();
-}
-
-class CategoryCardState extends State<CategoryCard> {
-  bool isSelected = false;
-
-  @override
   Widget build(BuildContext context) {
-    /// TODO 2 Use Selected Category Provider
-    // bool isSelected =     widget.category.categoryId == valueFromProvider;
-
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          isSelected = true;
-        });
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: isSelected
-                  ? Colors.blue.withOpacity(0.5)
-                  : Colors.grey.withOpacity(0.1),
-              blurRadius: isSelected ? 15 : 15,
-              spreadRadius: isSelected ? 1 : 1,
-              offset: isSelected ? const Offset(2, 2) : const Offset(2, 2),
-            ),
-            BoxShadow(
-              color: isSelected
-                  ? Colors.blue.withOpacity(0.5)
-                  : Colors.grey.withOpacity(0.4),
-              blurRadius: isSelected ? 6 : 6,
-              spreadRadius: isSelected ? 3 : 3,
-              offset: isSelected ? const Offset(1, 1) : const Offset(1, 1),
-            ),
-          ],
-        ),
-        padding: const EdgeInsets.all(9),
-        child: Column(
-          children: [
-            Image.network(
-              widget.category.image,
-              height: 55,
-              fit: BoxFit.cover,
-            ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: Text(
-                widget.category.name,
-                maxLines: 1,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.normal,
+    return Consumer<SelectedCategoryProvider>(
+      builder: (context, provider, child) {
+        return GestureDetector(
+          onTap: () {
+            provider.selectedCategoryId = category.categoryId;
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: provider.selectedCategoryId == category.categoryId
+                      ? Colors.blue.withOpacity(0.5)
+                      : Colors.grey.withOpacity(0.1),
+                  blurRadius: provider.selectedCategoryId == category.categoryId
+                      ? 15
+                      : 15,
+                  spreadRadius:
+                      provider.selectedCategoryId == category.categoryId
+                          ? 1
+                          : 1,
+                  offset: provider.selectedCategoryId == category.categoryId
+                      ? const Offset(2, 2)
+                      : const Offset(2, 2),
                 ),
+                BoxShadow(
+                  color: provider.selectedCategoryId == category.categoryId
+                      ? Colors.blue.withOpacity(0.5)
+                      : Colors.grey.withOpacity(0.4),
+                  blurRadius: provider.selectedCategoryId == category.categoryId
+                      ? 6
+                      : 6,
+                  spreadRadius:
+                      provider.selectedCategoryId == category.categoryId
+                          ? 3
+                          : 3,
+                  offset: provider.selectedCategoryId == category.categoryId
+                      ? const Offset(1, 1)
+                      : const Offset(1, 1),
+                ),
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  Image.network(
+                    category.image,
+                    height: 55,
+                    fit: BoxFit.cover,
+                  ),
+                  const SizedBox(height: 10),
+                  Expanded(
+                    child: Text(
+                      category.name,
+                      maxLines: 1,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
