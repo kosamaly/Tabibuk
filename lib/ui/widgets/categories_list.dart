@@ -56,8 +56,9 @@ class _CategoriesListState extends State<CategoriesList> {
 
                   // Set the desired height
                   child: CategoryCard(
-                      category:
-                          category), // Replace CategoryCard with your custom widget
+                    categoryId: category.categoryId,
+                    category: category,
+                  ), // Replace CategoryCard with your custom widget
                 ),
               );
             },

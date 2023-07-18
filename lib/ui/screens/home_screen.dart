@@ -1,16 +1,29 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:tabibuk/data/models/category_model.dart';
 import 'package:tabibuk/helpers/context_extensions.dart';
 import 'package:tabibuk/ui/screens/drawer.dart';
 import 'package:tabibuk/ui/widgets/categories_list.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+import '../widgets/doctors_list.dart';
+
+class HomeScreen extends StatefulWidget {
+  final CategoryModel category;
+
+  const HomeScreen({
+    Key? key,
+    required int categoryId,
+    required this.category,
+    // required this.category,
+  }) : super(key: key);
 
   @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
-    log("Home Rebuild");
+    print("home rebuild");
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -26,8 +39,8 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                width: context.widthR(0.6),
-                height: context.heightR(0.20),
+                width: context.width * 0.6,
+                height: context.height * 0.20,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('images/logo2.png'),
@@ -39,8 +52,15 @@ class HomeScreen extends StatelessWidget {
                 height: 20,
               ),
               SizedBox(
-                height: context.heightR(0.12),
+                height: context.height * 0.12,
               ),
+              const SizedBox(
+                height: 10,
+              ),
+              // DoctorsList(
+              //   categoryId: widget.category.categoryId,
+              //   // do
+              // ),
               const Text(
                 "وَإِذَا مَرِضْتُ فَهُوَ يَشْفِيْنِ",
                 style: TextStyle(

@@ -57,9 +57,9 @@ class DoctorCardState extends State<DoctorCard> {
             Text(
               widget.doctor.name,
               style: const TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.bold,
-              ),
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
             ),
           ],
         ),

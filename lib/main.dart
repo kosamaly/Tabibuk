@@ -1,13 +1,13 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tabibuk/ui/screens/contactus.dart';
 import 'package:tabibuk/ui/screens/doctors_screen.dart';
-
 import 'package:tabibuk/ui/screens/home_screen.dart';
 import 'package:tabibuk/ui/screens/splash_screen.dart';
 
+import 'data/models/category_model.dart';
 import 'logic/providers/categories_provider.dart';
-
 import 'logic/providers/doctors_provider.dart';
 import 'logic/providers/selected_categoy_provider.dart';
 
@@ -20,14 +20,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const categoryId = "0"; // Replace with the actual categoryId value
+    const categoryId = 1; // replace with the actual categoryId value
+
     return MultiProvider(
       providers: [
-        // Provide CategoriesProvider here
+        // provide CategoriesProvider here
         ChangeNotifierProvider(create: (_) => CategoriesProvider()),
         ChangeNotifierProvider(create: (_) => DoctorsProvider()),
         ChangeNotifierProvider(create: (_) => SelectedCategoryProvider()),
-        // Add more providers if needed
+        // add more providers if needed
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -37,10 +38,10 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => const SplashScreen(),
-          '/home': (context) => const HomeScreen(),
-          '/doctors': (context) => const DoctorsScreen(
-                categoryId: categoryId,
-              ),
+          '/home': (context) => HomeScreen(
+              categoryId: categoryId,
+              category:
+                  CategoryModel(categoryId: categoryId, name: '', image: '')),
           '/contact': (context) => const ContactScreen(),
         },
       ),

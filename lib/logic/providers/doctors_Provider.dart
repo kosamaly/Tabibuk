@@ -26,6 +26,7 @@ class DoctorsProvider extends ChangeNotifier {
       _doctors = (rawCategoriesData as List)
           .map((data) => DoctorsModel.fromJson(data))
           .toList();
+      // closing the loading
       isLoading = false;
       notifyListeners();
     } catch (e, stacktrace) {
