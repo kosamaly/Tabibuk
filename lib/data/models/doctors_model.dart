@@ -23,7 +23,7 @@ class DoctorsModel {
       name: json['name'],
       categoryId: json['category_id'],
       specialty: json['specialty'],
-      rate: json['rate'],
+      rate: (json['rate'] as num).toDouble(),
       image: json['image'] ?? "",
       sessionPrice: json['session_price'],
     );

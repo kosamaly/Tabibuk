@@ -6,11 +6,10 @@ import 'package:tabibuk/logic/providers/doctors_provider.dart';
 
 import 'doctors_card.dart';
 
+// TODO FIX UI
 class DoctorsList extends StatefulWidget {
-  final int categoryId;
   const DoctorsList({
     super.key,
-    required this.categoryId,
   });
 
   @override
@@ -21,13 +20,23 @@ class DoctorsListState extends State<DoctorsList> {
   @override
   void initState() {
     super.initState();
-    UiHelper.postBuild((_) {
-      context.read<DoctorsProvider>().fetchDoctors();
+    UiHelper.postBuild((_) async {
+      await context.read<DoctorsProvider>().fetchDoctors();
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    // TODO show this if doctors data is not initialized yet
+    /*
+       const Text(
+                "وَإِذَا مَرِضْتُ فَهُوَ يَشْفِيْنِ",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 28,
+                    color: Colors.cyan),
+              ),
+    */
     final doctorsProvider = context.watch<DoctorsProvider>();
     final isLoading = doctorsProvider.isLoading;
     final isError = doctorsProvider.isError;

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tabibuk/configs/themes/dimensions.dart';
 import 'package:tabibuk/data/models/category_model.dart';
 import 'package:tabibuk/helpers/context_extensions.dart';
 import 'package:tabibuk/ui/screens/drawer.dart';
 import 'package:tabibuk/ui/widgets/categories_list.dart';
-
-import '../widgets/doctors_list.dart';
+import 'package:tabibuk/ui/widgets/doctors_list.dart';
 
 class HomeScreen extends StatefulWidget {
   final CategoryModel category;
@@ -17,13 +17,12 @@ class HomeScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    print("home rebuild");
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -49,25 +48,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const CategoriesList(),
               const SizedBox(
-                height: 20,
+                height: D.sizeLarge,
               ),
-              SizedBox(
-                height: context.height * 0.12,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              // DoctorsList(
-              //   categoryId: widget.category.categoryId,
-              //   // do
-              // ),
-              const Text(
-                "وَإِذَا مَرِضْتُ فَهُوَ يَشْفِيْنِ",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 28,
-                    color: Colors.cyan),
-              ),
+              // DOCTORS LIST
+              const DoctorsList(),
             ],
           ),
         ),
