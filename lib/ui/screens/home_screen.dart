@@ -47,11 +47,14 @@ class HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const CategoriesList(),
-              const SizedBox(
-                height: D.sizeLarge,
+              // const SizedBox(
+              //   height: D.sizeXSmall,
+              // ),
+              //  show DOCTORS LIST at the same page
+              Padding(
+                padding: const EdgeInsets.all(.1),
+                child: const DoctorsList(),
               ),
-              // DOCTORS LIST
-              const DoctorsList(),
             ],
           ),
         ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tabibuk/data/models/doctors_model.dart';
 
+import '../../configs/themes/dimensions.dart';
+
 class DoctorCard extends StatefulWidget {
   final DoctorsModel doctor;
 
@@ -53,7 +55,7 @@ class DoctorCardState extends State<DoctorCard> {
               width: 60,
               fit: BoxFit.contain,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: D.sizeLarge),
             Text(
               widget.doctor.name,
               style: const TextStyle(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../configs/themes/dimensions.dart';
 import '../../data/models/category_model.dart';
 import '../../logic/providers/selected_category_provider.dart';
 
@@ -66,15 +67,15 @@ class CategoryCard extends StatelessWidget {
               ],
             ),
             child: Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 children: [
                   Image.network(
                     category.image,
-                    height: 55,
+                    height: 45,
                     fit: BoxFit.cover,
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: D.sizeSmall),
                   Expanded(
                     child: Text(
                       category.name,
