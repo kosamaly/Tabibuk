@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tabibuk/configs/themes/dimensions.dart';
 import 'package:tabibuk/data/models/category_model.dart';
 import 'package:tabibuk/helpers/context_extensions.dart';
 import 'package:tabibuk/ui/screens/drawer.dart';
@@ -51,9 +50,9 @@ class HomeScreenState extends State<HomeScreen> {
               //   height: D.sizeXSmall,
               // ),
               //  show DOCTORS LIST at the same page
-              Padding(
-                padding: const EdgeInsets.all(.1),
-                child: const DoctorsList(),
+              const Padding(
+                padding: EdgeInsets.all(.1),
+                child: DoctorsList(),
               ),
             ],
           ),

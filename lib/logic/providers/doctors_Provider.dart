@@ -10,7 +10,6 @@ class DoctorsProvider extends ChangeNotifier {
 
   List<DoctorsModel> _doctors = [];
   bool isLoading = false;
-  bool isEmpty = false;
 
   // State error
   bool isError = false;
@@ -19,8 +18,6 @@ class DoctorsProvider extends ChangeNotifier {
 
   Future<void> fetchDoctors() async {
     try {
-      isEmpty = true;
-      notifyListeners();
       isLoading = true;
       notifyListeners();
       final response = await Dio().get(Endpoints.doctors);
@@ -35,7 +32,6 @@ class DoctorsProvider extends ChangeNotifier {
     } catch (e, stacktrace) {
       debugPrint('Failed to fetch or parse doctors: $e');
       debugPrint(stacktrace.toString());
-      isEmpty = false;
       isLoading = false;
       isError = true;
       notifyListeners();

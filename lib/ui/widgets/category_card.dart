@@ -21,7 +21,6 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// TODO FIX UI
 //
     return Consumer<SelectedCategoryProvider>(
       builder: (context, provider, child) {
