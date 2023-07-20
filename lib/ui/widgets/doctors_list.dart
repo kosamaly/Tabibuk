@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tabibuk/helpers/context_extensions.dart';
 import 'package:tabibuk/helpers/ui_helpers.dart';
-import 'package:tabibuk/logic/providers/doctors_provider.dart';
+import 'package:tabibuk/logic/providers/doctor_list_provider.dart';
 import 'doctors_card.dart';
 
 class DoctorsList extends StatefulWidget {

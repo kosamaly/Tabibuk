@@ -6,7 +6,7 @@ import 'package:tabibuk/ui/screens/splash_screen.dart';
 
 import 'data/models/category_model.dart';
 import 'logic/providers/categories_provider.dart';
-import 'logic/providers/doctors_provider.dart';
+import 'logic/providers/doctor_list_provider.dart';
 import 'logic/providers/selected_category_provider.dart';
 
 void main() {
