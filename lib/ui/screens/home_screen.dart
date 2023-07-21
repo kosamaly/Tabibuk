@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tabibuk/configs/themes/dimensions.dart';
 import 'package:tabibuk/data/models/category_model.dart';
 import 'package:tabibuk/helpers/context_extensions.dart';
 import 'package:tabibuk/ui/screens/drawer.dart';
@@ -12,7 +13,6 @@ class HomeScreen extends StatefulWidget {
     Key? key,
     required int categoryId,
     required this.category,
-    // required this.category,
   }) : super(key: key);
 
   @override
@@ -23,39 +23,38 @@ class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
+      // extendBodyBehindAppBar: true,
       appBar: AppBar(
+        toolbarHeight: 90, // Preferred height of the appbar
+        title: Container(
+          padding: const EdgeInsets.only(top: 8),
+          child: Image.asset(
+            'images/logo2.png',
+            fit: BoxFit.contain,
+            width: 250,
+            height: 80,
+          ),
+        ),
         iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.transparent,
+
+        backgroundColor: Colors.white,
         elevation: 0.0,
-        title: const Text('Home'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 16),
-          child: Column(
-            children: [
-              Container(
-                width: context.width * 0.6,
-                height: context.height * 0.20,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('images/logo2.png'),
-                  ),
-                ),
-              ),
-              const CategoriesList(),
-              // const SizedBox(
-              //   height: D.sizeXSmall,
-              // ),
-              //  show DOCTORS LIST at the same page
-              const Padding(
-                padding: EdgeInsets.all(.1),
-                child: DoctorsList(),
-              ),
-            ],
-          ),
+
+      body: const Center(
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: CategoriesList(),
+            ),
+            Expanded(
+                child: Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: DoctorsList(),
+            )),
+          ],
         ),
       ),
       endDrawer: const MyDrawer(),
@@ -87,3 +86,12 @@ class HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+// Container(
+//   width: context.width * 0.6,
+//   height: context.height * 0.11,
+//   decoration: const BoxDecoration(
+//     image: DecorationImage(
+//       image: AssetImage('images/logo2.png'),
+//     ),
+//   ),
+// ),

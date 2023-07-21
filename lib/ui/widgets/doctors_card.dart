@@ -55,7 +55,7 @@ class DoctorCardState extends State<DoctorCard> {
               width: 60,
               fit: BoxFit.contain,
             ),
-            const SizedBox(height: D.sizeLarge),
+            const SizedBox(height: D.sizeXXSmall),
             Text(
               widget.doctor.name,
               style: const TextStyle(
